@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/fave icon.png" type="image/x-icon">
+    <title>login</title>
+    <link rel="stylesheet" href="/css/form.css">
+</head>
+<body>
+    <div id="edit-section" class="login-form">
+        <div>
+            <h5>login now</h5>
+        </div>
+    <form id="content-section" action="/bahadur/v1/userlogin" method="post">
+        <ul>
+            <li>
+                <label for="">email</label>
+                <input type="text" name="email" id="email">
+            </li>
+            <li>
+                <label for="">password</label>
+                <input type="password" name="password" id="password">
+            </li>
+            <li>
+                <div id="btn-div">
+                    <button id="submit-btn" type="submit">Login</button>
+                </div>
+            </li>
+        </ul>
+    </form>
+    <div>
+        <p id="register-message">if not account <a href="/bahadur/v1/user">register</a> Now</p>
+    </div>
+    <a id="google-btn" href="/bahadur/v1/googleredirect">
+        <img src="/images/google.png" alt="google">
+        <p>Google</p>    
+    </a>
+    <div>
+        <p id="message"><%= message %></p>
+    </div>
+    
+</div>
+</body>
+<script>
+    const message = document.getElementById("message");
+    console.log("Message is this: ", message.innerText);
+    const messageIs = "Congratulations You Are Successfully Login";
+    const url = "/bahadur/v1/commerce";
+    console.log(`URL: ${url} MIS: ${messageIs}`);
+    if (message.innerText === messageIs) {
+        console.log("In if section!");
+        window.location.pathname = url;
+    }
+</script>
+</html>

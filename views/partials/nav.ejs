@@ -1,0 +1,51 @@
+<header>
+    <nav>
+        <ul id="hed_section_1">
+            <li>
+                <img src="/images/logo.png" alt="logo">
+            </li>
+            <li>
+                <div id="search-section">
+                    <input type="search" name="" id="search-input">
+                    <button id="search-btn" type="submit"><i class="bi bi-search"></i></button>
+                </div>
+            </li>
+            <li>
+                <div id="prof-cart">
+                    <% if( profilepic ===  undefined ){ %>
+                        <a class="header-items" href="/bahadur/v1/userlogin">Login</a>
+                        <% }else{ %>
+                            <a class="header-items" href="/bahadur/v1/userlogout">Logout</a>
+                            <a id="img-section" href="/bahadur/v1/profile">
+                                <img src="<%= profilepic %>" alt="profile">
+                            </a>
+                    <% } %>
+                    <% if( totalQuantity ===  undefined ){ %>
+                        <a id="cart-section" href="/bahadur/v1/cart">
+                            <span id="cart"><i class="bi bi-cart2"></i></span>
+                            <span id="cart-items">0</span>
+                        </a>
+                    <% }else{ %>
+                    <a id="cart-section" href="/bahadur/v1/cart">
+                        <span id="cart"><i class="bi bi-cart2"></i></span>
+                        <span id="cart-items"><%= totalQuantity %></span>
+                    </a>
+                    <% } %>
+                </div>
+            </li>
+        </ul>
+        <ul id="hed_section_2">
+            <li>
+                <a href="/bahadur/v1/commerce">home</a>
+            </li>
+            <li>
+                <a href="/bahadur/v1/categorys">categorys</a>
+            </li>
+            <li>
+                <a href="/bahadur/v1/brands">brands</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+    <script src="/script/nav.js"></script>
+    <script src="/script/search.js"></script>

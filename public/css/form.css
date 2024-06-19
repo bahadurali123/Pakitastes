@@ -1,0 +1,185 @@
+:root {
+    --primary_color: #fe2713;
+    --accent-color: #ff9808;
+    --accent-blur-color: #f9c3777c;
+    --background_color: #FAF3DD;
+    --black-color: #000000;
+    /* --primary_color: #34495E;
+--accent-color:  #3498DB;
+--accent-blur-color:  #3498db96;
+--background_color: #EAEAEA; */
+
+    --heading-font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    --body-font: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+#edit-section {
+    width: 50vw;
+    height: auto;
+    padding: 10vh;
+    background-color: var(--background_color);
+    font-family: var(--body-font);
+    text-transform: capitalize;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+#btn-section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0px 35px;
+}
+
+#btn-section a {
+    text-decoration: none;
+    color: var(--black-color);
+}
+
+#btn-section a:hover {
+    color: var(--primary_color);
+}
+
+#content-section {
+    width: 100%;
+    height: auto;
+    margin: 15px 0px;
+}
+
+#content-section ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#content-section ul li {
+    margin: 5px 0px;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    font-family: var(--body-font);
+    text-transform: capitalize;
+    font-size: 15px;
+}
+
+#content-section ul li label {
+    margin: 3px 0px;
+}
+
+#content-section ul li input {
+    margin: 3px 0px;
+    padding: 5px;
+}
+#content-section ul li textarea {
+    margin: 3px 0px;
+    padding: 5px;
+}
+#content-section ul li select {
+    margin: 3px 0px;
+    padding: 5px;
+    text-transform: capitalize;
+}
+#message {
+    color: var(--primary_color);
+}
+/* ..........Registration form style.......... */
+#heading_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--heading-font);
+    font-size: 18px;
+    text-transform: capitalize;
+}
+#btn-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#submit-btn {
+    padding: 5px 15px;
+    border: 1px solid var(--primary_color);
+    color: var(--primary_color);
+    background-color: var(--background_color);
+    border-radius: 20px;
+    text-transform: capitalize;
+    font-size: 16px;
+    cursor: pointer;
+}
+#submit-btn:hover {
+    background-color: var(--primary_color);
+    color: white;
+}
+#google-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 20px;
+    color: var(--black-color);
+    text-decoration: none;
+}
+#google-btn img {
+    width: 50px;
+    padding: 0px 10px;
+}
+#google-btn p {
+    font-size: 15px;
+    padding: 0px 10px;
+    text-transform: capitalize;
+}
+/* ..........Logion form style.......... */
+.login-form div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0px;
+}
+.login-form div h5 {
+    font-size: 22px;
+}
+#register-message {
+    font-size: 13px;
+}
+@media (max-width: 950px) {
+    #edit-section {
+        width: 60vw;
+    }
+}
+@media (max-width: 650px) {
+    #edit-section {
+        width: 80vw;
+    }
+}
+@media (max-width: 500px) {
+    /* body {
+        background-color: var(--primary_color);
+    } */
+    #edit-section {
+        padding: 5vh;
+    }
+    #heading_section {
+        font-size: 14px;
+    }
+    #google-btn p {
+        font-size: 13px;
+    }
+}

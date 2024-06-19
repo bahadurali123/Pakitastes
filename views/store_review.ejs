@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/fave icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Review</title>
+    <link rel="stylesheet" href="/css/store_nav.css">
+    <link rel="stylesheet" href="/css/store_products.css">
+</head>
+<body>
+    <%- include('partials/store_nav.ejs', {logo:storelogo}) %>    
+
+    <div id="items-section">
+        <div id="top-layer">
+            <div>
+                <p id="page-title">reviews</p>
+            </div>
+            <div>
+                <p>date</p>
+            </div>
+        </div>
+        <div id="botem-layer">
+            <div id="rating-top-section">
+                <div id="store-total-rating">
+                    <div class="rating-name sname">store</div>
+                    <div class="overall-rating">
+                        <p class="total-rating"><%= store_rating.ratingIs %></p>
+                        <p><%= store_rating.rating_gev_num %> / <%= store_rating.rating_total_num %></p>
+                    </div>
+                    <div>
+                        <div>
+                            <p>1</p>
+                            <div><i class="bi bi-star-fill"></i></div>
+                            <p><%= store_rating.rating1 %></p>
+                        </div>
+                        <div>
+                            <p>2</p>
+                            <div>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <p><%= store_rating.rating2 %></p>
+                        </div>
+                        <div>
+                            <p>3</p>
+                            <div>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <p><%= store_rating.rating3 %></p>
+                        </div>
+                        <div>
+                            <p>4</p>
+                            <div>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <p><%= store_rating.rating4 %></p>
+                        </div>
+                        <div>
+                            <p>5</p>
+                            <div>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <p><%= store_rating.rating5 %></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="product-total-rating">
+                    <div class="rating-name pname">products</div>
+                    <div class="overall-rating">
+                        <p class="total-rating"><%= product_rating.ratingIs %></p>
+                        <p><%= product_rating.rating_gev_num %> / <%= product_rating.rating_total_num %></p>
+                    </div>
+                    <div>
+                        <div>
+                            <p>1</p>
+                            <div><i class="bi bi-star-fill"></i></div>
+                            <p><%= product_rating.rating1 %></p>
+                        </div>
+                        <div>
+                            <p>2</p>
+                            <div>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <p><%= product_rating.rating2 %></p>
+                        </div>
+                        <div>
+                            <p>3</p>
+                            <div>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <p><%= product_rating.rating3 %></p>
+                        </div>
+                        <div>
+                            <p>4</p>
+                            <div>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <p><%= product_rating.rating4 %></p>
+                        </div>
+                        <div>
+                            <p>5</p>
+                            <div>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <p><%= product_rating.rating5 %></p>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="reviews-section" id="products-reviews-section">
+                <% productReviews.forEach(item =>{ %>
+                <div>
+                    <div class="rating-part1">
+                        <span>
+                            <img src="<%= item.image %>" alt="image">
+                        </span>
+                        <span>
+                            <h2><%= item.name %></h2>
+                            <p>rating &nbsp;&nbsp;<span><%= item.rating %></span></p>
+                        </span>
+                        <span>
+                            <p><%= item.date %></p>
+                        </span>
+                    </div>
+                    <div class="rating-part2">
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= item.review %></p>
+                    </div>
+                    <hr>
+                    <div class="rating-part3">
+                        <h4><%= item.product %></h4>
+                    </div>
+                </div>
+                <% }); %>
+
+            </div>
+            <div class="reviews-section" id="store-reviews-section">
+
+                <% storeReviews.forEach(item =>{ %>
+                <div>
+                    <div class="rating-part1">
+                        <span>
+                            <img src="<%= item.image %>" alt="image">
+                        </span>
+                        <span>
+                            <h2><%= item.name %></h2>
+                            <p>rating &nbsp;&nbsp;<span><%= item.rating %></span></p>
+                        </span>
+                        <span>
+                            <p><%= item.date %></p>
+                        </span>
+                    </div>
+                    <hr>
+                    <div class="rating-part2">
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= item.review %></p>
+                    </div>
+                </div>
+                <% }); %>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="/script/store_rating.js"></script>
+</body>
+</html>

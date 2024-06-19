@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/images/fave icon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="/css/order.css">
+</head>
+<body>
+    <h1 id="heading">add shipping & selecet method</h1>
+    <div id="paypage">
+      <div id="address">
+        <ul>
+          <li>
+            <p >add shipping Address</p>
+          </li>
+          <li>
+            <label>Address Line 1*</label>
+            <input type="text" name="name" id="addline1" placeholder="street number, name">
+          </li>
+          <li>
+            <label>Address Line 2*</label>
+            <input type="text" name="name" id="addline2" placeholder="apartment, building">
+          </li>
+          <li>
+            <label>admin_area_2*</label>
+            <input type="text" name="name" id="admarea2" placeholder="city, town">
+          </li>
+          <li>
+            <label>admin_area_1*</label>
+            <input type="text" name="name" id="admarea1" placeholder="state, province">
+          </li>
+          <li>
+            <label>postal code*</label>
+            <input type="text" name="name" id="postal" placeholder="postal, ZIP code">
+          </li>
+          <li>
+            <label>Country Code*</label>
+            <input type="text" name="name" id="country" placeholder="US">
+          </li>
+        </ul>
+        <div id="button">
+          <button id="address-btn">Submit</button>
+        </div>
+      </div>
+      <div id="pay">
+        <div id="pay-section">
+          <div id="paypal-button-container">
+            <p class="paymethod">Paypal</p>
+          </div>
+          <p id="result-message"></p>
+        </div>
+      </div>
+      </div>
+
+        <script src="https://www.paypal.com/sdk/js?client-id=AY6msNqRdAipJc4qWR0hWbleSpAQ8dA7lbAc_aaKnqKBxnWr5RbPKxVDKVorsCVj44sHTIHhGgj_TrBP&currency=USD"></script>
+        <script src="/script/order.js"></script>
+</body>
+</html>

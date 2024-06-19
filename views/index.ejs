@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/fave icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Ecommerce</title>
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <%- include('partials/nav.ejs', {profilepic:userProfile, totalQuantity}) %>
+
+    <div id="popular-products">
+        <div class="heading-section">
+            <span>
+                <h2>Popular Products</h2>
+            </span>
+            <span>
+                <a href="/bahadur/v1/products">all products</a>
+            </span>
+        </div>
+        <div id="products-section">
+            <!-- product section start -->
+            <% let itemIndex = 0; %>
+            <% popularProducts.forEach( (pro, index) => { %>
+            <% if(itemIndex < 9) { %>
+                <% if(index === 0) { %>
+                    <div class="product product-1">
+                        <a class="product-anc" href="/bahadur/v1/product/<%= pro._id %>">
+                            <div class="product1-img-div">
+                                <img class="product1-img" src="<%= pro.picture %>" alt="">
+                            </div>
+                            <div class="product-dis-div">
+                                <div class="product-title">
+                                    <h4><%= pro.name %></h4>
+                                </div>
+                                <div class="product-pric-section">
+                                    <p>$&nbsp;<span><%= pro.price %></span></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% } else{ %>
+            <div class="product">
+                <a class="product-anc" href="/bahadur/v1/product/<%= pro._id %>">
+                    <div class="product-img-div">
+                        <img class="product-img" src="<%= pro.picture %>" alt="">
+                    </div>
+                    <div class="product-dis-div">
+                        <div class="product-title">
+                            <h4><%= pro.name %></h4>
+                        </div>
+                        <div class="product-pric-section">
+                            <p>$&nbsp;<span><%= pro.price %></span></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <% }; %>
+            <% }; %>
+            <% itemIndex ++; %>
+            <% }); %>
+            <!-- nonpopularProducts -->
+            <% nonpopularProducts.forEach( pro => { %>
+                <% if(itemIndex === 0) { %>
+                    <div class="product product-1">
+                        <a class="product-anc" href="/bahadur/v1/product/<%= pro._id %>">
+                            <div class="product1-img-div">
+                                <img class="product1-img" src="<%= pro.picture %>" alt="">
+                            </div>
+                            <div class="product-dis-div">
+                                <div class="product-title">
+                                    <h4><%= pro.name %></h4>
+                                </div>
+                                <div class="product-pric-section">
+                                    <p>$&nbsp;<span><%= pro.price %></span></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <% itemIndex ++; %>
+
+                <% } else if(itemIndex < 9) { %>
+                <div class="product">
+                    <a class="product-anc" href="/bahadur/v1/product/<%= pro._id %>">
+                        <div class="product-img-div">
+                            <img class="product-img" src="<%= pro.picture %>" alt="">
+                        </div>
+                        <div class="product-dis-div">
+                            <div class="product-title">
+                                <h4><%= pro.name %></h4>
+                            </div>
+                            <div class="product-pric-section">
+                                <p>$&nbsp;<span><%= pro.price %></span></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <% itemIndex ++; %>
+                <% }; %>
+            <% }); %>
+            <!-- if popularProducts is not exist -->
+             <% if(!popularProducts) { %>
+                <% nonpopularProducts.forEach( (pro, index) => { %>
+                    <% if(itemIndex < 9) { %>
+                        <% if(index === 0) { %>
+                            <div class="product product-1">
+                                <a class="product-anc" href="/bahadur/v1/product/<%= pro._id %>">
+                                    <div class="product1-img-div">
+                                        <img class="product1-img" src="<%= pro.picture %>" alt="">
+                                    </div>
+                                    <div class="product-dis-div">
+                                        <div class="product-title">
+                                            <h4><%= pro.name %></h4>
+                                        </div>
+                                        <div class="product-pric-section">
+                                            <p>$&nbsp;<span><%= pro.price %></span></p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        <% } else{ %>
+                    <div class="product">
+                        <a class="product-anc" href="/bahadur/v1/product/<%= pro._id %>">
+                            <div class="product-img-div">
+                                <img class="product-img" src="<%= pro.picture %>" alt="">
+                            </div>
+                            <div class="product-dis-div">
+                                <div class="product-title">
+                                    <h4><%= pro.name %></h4>
+                                </div>
+                                <div class="product-pric-section">
+                                    <p>$&nbsp;<span><%= pro.price %></span></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <% }; %>
+                    <% }; %>
+                    <% itemIndex ++; %>
+                    <% }); %>
+             <% }; %>
+            <!-- product section end -->
+        </div>
+    </div>
+    <!-- product categorys -->
+    <div id="popular-categorys">
+        <div class="heading-section">
+            <span>
+                <h2>Popular categories</h2>
+            </span>
+            <span>
+                <a href="/bahadur/v1/categorys">all categories</a>
+            </span>
+        </div>
+        <div id="category-section">
+
+            <% let catIndex = 0; %>
+            <% popularCategorys.forEach( item => { %>
+            <% if(!catIndex < 4 ) { %>
+            <div class="category">
+                <div class="category-details">
+                    <h4><%= item.name %></h4>
+                    <p><%= item.discription %></p>
+                    <a href="/bahadur/v1/categorys/<%= item._id %>">read more</a>
+                </div>
+                <div class="category-img">
+                    <video autoplay muted>
+                        <source src="<%= item.video %>" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <% catIndex ++; %>
+            <% }; %>
+            <% }); %>
+            <!-- If popularCategorys is not exist -->
+            <% nonpopularCategorys.forEach( item => { %>
+            <% if(!catIndex < 4 ) { %>
+            <div class="category">
+                <div class="category-details">
+                    <h4><%= item.name %></h4>
+                    <p><%= item.discription %></p>
+                    <a href="/bahadur/v1/categorys/<%= item._id %>">read more</a>
+                </div>
+                <div class="category-img">
+                    <video autoplay muted>
+                        <source src="<%= item.video %>" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <% catIndex ++; %>
+            <% }; %>
+            <% }); %>
+
+            <!-- end of categorys list -->
+        </div>
+    </div>
+    <!-- popular brands -->
+    <div id="popular-brands">
+        <div class="heading-section">
+            <span>
+                <h2>Popular brands</h2>
+            </span>
+            <span>
+                <a href="/bahadur/v1/brands">all brands</a>
+            </span>
+        </div>
+        <div id="brands-section">
+
+            <% let brandIndex = 0; %>
+            <% popularBrands.forEach( item => { %>
+            <% if(brandIndex < 4 ) { %>
+            <div class="brand">
+                <a href="/bahadur/v1/brand/<%= item._id %>">
+                    <img src="<%= item.logo %>" alt="">
+                </a>
+            </div>
+            <% brandIndex ++; %>
+            <% }; %>
+            <% }); %>
+            <!-- If popularBrands is not exist -->
+            <% nonpopularBrands.forEach( item => { %>
+            <% if(brandIndex < 4 ) { %>
+                <div class="brand">
+                    <a href="/bahadur/v1/brand/<%= item._id %>">
+                        <img src="<%= item.logo %>" alt="">
+                    </a>
+                </div>
+            <% brandIndex ++; %>
+            <% }; %>
+            <% }); %>
+        </div>
+    </div>
+    <div id="testimonials">
+        <div class="heading-section">
+            <span>
+                <h2>Customer satisfaction</h2>
+            </span>
+        </div>
+        <div id="reviews-contaneer">
+
+            <% if(reviewIs) { %>
+            <% reviewIs.forEach(item => { %>
+            <div class="review">
+                <div class="review-client-profile">
+                    <div class="rev-img-section">
+                        <img src="<%= item.picture %>" alt="img">
+                    </div>
+                </div>
+                <div class="review-disc">
+                    <p class="review-rate"><%= item.rating %> <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></p>
+                    <h3><%= item.name %></h3>
+                    <p class="review-text"><strong>"</strong><%= item.review %> Lorem ipsum dolor sit amet consectetur adipisicing elit. Error blanditiis consectetur quos, labore vel aperiam, accusamus sequi molestiae nisi, repudiandae quidem. Nemo tempore vero nesciunt explicabo nulla molestiae magni molestias!<strong>"</strong></p>
+                </div>
+            </div>
+            <% }); %>
+            <% }; %>
+
+        </div>
+    </div>
+
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

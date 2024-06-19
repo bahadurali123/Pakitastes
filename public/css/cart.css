@@ -1,0 +1,165 @@
+:root {
+    --primary_color: #fe2713;
+    --accent-color: #ff9808;
+    --accent-blur-color: #f9c377;
+    --background_color: #FAF3DD;
+    --black-color: #000000;
+    /* --primary_color: #34495E;
+    --accent-color:  #3498DB;
+    --accent-blur-color:  #3498db96;
+    --background_color: #EAEAEA; */
+
+    --heading-font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    --body-font: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+body{
+    height: 100%;
+}
+        #carts-box{
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+        }
+        #carts{
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        #carts p {
+            margin: 15px 0px;
+            font-family: var(--heading-font);
+            font-size: 20px;
+            text-transform: capitalize;
+        }
+        #carts .cart {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            /* background-color: var(--background_color); */
+            border-bottom: 1px solid var(--accent-color);
+            border-top: 1px solid var(--accent-color);
+            
+        }
+        .item-images, .item-images div{
+            width: 90%;
+            height: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .item-images, .item-images div img {
+            width: 100%;
+            height: 150px;
+        }
+        .cartitems {
+            width: 95%;
+            height: 95%;
+            display: flex;
+            flex-direction: column;
+        }
+        .cartitems h2 {
+            margin: 15px 0px;
+            font-size: 18px;
+            font-family: var(--heading-font);
+            text-transform: capitalize;
+            padding: 10px 0px;
+        }
+        /* .cartitems .product-items {
+            display: flex;
+            justify-content: space-between;
+        } */
+        #price-categ {
+            margin: 15px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--body-font);
+}
+
+#quantity-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--accent-color);
+}
+
+#quantity-section div {
+    width: 35px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quantity-decrease p,
+.quantity-increase p {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quantity-decrease p:hover,
+.quantity-increase p:hover {
+    background-color: var(--primary_color);
+    cursor: pointer;
+}
+.item-actions {
+    margin: 15px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+.item-actions .actions:hover {
+    cursor: pointer;
+    color: var(--primary_color);
+}
+.true{
+    color: var(--primary_color);
+}
+.false {
+    color: var(--black-color);
+}
+#cart-total {
+    margin: 25px 5px;
+    /* background-color: var(--primary_color); */
+}
+#cart-total div p {
+    margin: 15px;
+}
+#cart-total div #summary {
+    /* margin: 15px; */
+    font-family: var(--heading-font);
+    font-size: 20px;
+    text-transform: capitalize;
+}
+#cart-total div hr {
+    height: 1px;
+    background-color: var(--accent-color);
+    border: none;
+}
+#sub-total {
+    font-size: 18px;
+    font-family: var(--body-font);
+    text-transform: capitalize;
+}
+#checkout-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#checkout-btn button {
+    padding: 5px 10px;
+    font-size: 15px;
+    border: 1px solid var(--accent-color);
+    border-radius: 20px;
+    background-color: var(--background_color);
+    color: var(--primary_color);
+    font-family: var(--body-font);
+    text-transform: capitalize;
+}
+#checkout-btn button:hover {
+    background-color: var(--primary_color);
+    color: var(--background_color);
+    cursor: pointer;
+}

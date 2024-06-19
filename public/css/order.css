@@ -1,0 +1,98 @@
+:root {
+    --primary_color: #fe2713;
+    --accent-color: #ff9808;
+    --accent-blur-color: #f9c377;
+    --background_color: #FAF3DD;
+    --black-color: #000000;
+    /* --primary_color: #34495E;
+    --accent-color:  #3498DB;
+    --accent-blur-color:  #3498db96;
+    --background_color: #EAEAEA; */
+
+    --heading-font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    --body-font: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        user-select: none;
+      }
+      body{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      #heading{
+        margin-bottom: 15px;
+        text-transform: capitalize;
+        font-family: var(--heading-font);
+        font-size: 18px;
+      }
+      #paypage{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        justify-items: center;
+        background-color: var(--background_color);
+        padding: 5vh;
+        border-radius: 20px;
+      }
+      #paypage li{
+        list-style: none;
+        margin: 10px 5px;
+        font-family: var(--body-font);
+        font-size: 15px;
+        text-transform: capitalize;
+        display: flex;
+        flex-direction: column;
+      }
+      #paypage li p {
+        padding-bottom: 3px;
+        font-family: var(--heading-font);
+        font-weight: 600;
+      }
+      #paypage li label {
+        padding-bottom: 3px;
+      }
+      #paypage li input {
+        padding: 5px;
+      }
+      #button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #button button {
+        padding: 5px 15px;
+        background-color: white;
+        border: 1px solid var(--primary_color);
+        border-radius: 20px;
+        color: var(--primary_color);
+        font-family: var(--body-font);
+        font-size: 15px;
+        text-transform: capitalize;
+      }
+      #button button:hover {
+        background-color: var(--primary_color);
+        color: white;
+      }
+      #pay-section{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .paymethod{
+        margin: 5px 0px;
+        text-transform: capitalize;
+        font-family: var(--body-font);
+      }
+      #result-message{
+        color: var(--primary_color);
+        text-transform: capitalize;
+      }

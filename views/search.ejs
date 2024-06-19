@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/fave icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Search</title>
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/category.css">
+    <link rel="stylesheet" href="/css/products.css">
+    <link rel="stylesheet" href="/css/brands.css">
+</head>
+
+<body>
+    <%- include('partials/nav.ejs', {profilepic:userProfile}) %>
+
+    <div id="products-page">
+        <h3 class="section-title">Products section</h3>
+        <div id="products-section">
+            <% productsIs.forEach((product)=>{ %>
+            <div class="product">
+                <a class="product-anc" href="/bahadur/v1/product/<%= product._id %>">
+                    <div class="product-img-div">
+                        <img class="product-img" src="<%= product.picture %>" alt="">
+                    </div>
+                    <div class="product-dis-div">
+                        <div class="product-title">
+                            <h4><%= product.name %></h4>
+                        </div>
+                        <div class="product-pric-section">
+                            <p>$&nbsp;<span><%= product.price %></span></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <% }) %>
+
+        </div>
+    </div>
+
+    <div id="categories-page">
+        <div id="categories-section-1">
+            <h3>categories</h3>
+            <!-- <p>lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore, dignissimos!</p> -->
+        </div>
+        <div id="categories-section-2">
+            <% searchedCategorys.forEach((category)=>{ %>
+                <a href="/bahadur/v1/categorys/<%= category._id %>" class="categry" id="categry">
+                    <div class="cat-vid">
+                        <video id="video" muted src="<%= category.video %>" width="250" height="250"></video>
+                    </div>
+                    <div class="cat-name">
+                        <h2><%= category.name %></h2>
+                    </div>
+                </a>
+            <% }) %>
+        </div>
+    </div>
+
+    <div id="brands-page">
+        <div id="brands-section-1">
+            <h3>brands</h3>
+            <!-- <p>lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore, dignissimos!</p> -->
+        </div>
+        <div id="brands-section-2">
+            <% searchedStors.forEach((stor)=>{ %>
+            <div class="brand">
+                <a href="/bahadur/v1/brand/<%= stor._id %>">
+                    <div class="brand-img">
+                        <img src="<%= stor.logo %>" alt="image">
+                    </div>
+                    <div class="brand-name">
+                        <h2><%= stor.name %></h2>
+                    </div>
+                </a>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+
+
+    <%- include('partials/footer.ejs') %>
+    <script src="/script/categories.js"></script>
+     <!-- <script>
+        const categry = document.getElementById("categry");
+        const video = document.getElementById("video");
+        console.log("Category is this: ",categry);
+        const hover = ()=>{
+            console.log("Houwer!");
+            video.play();
+        }
+        categry.addEventListener("mouseenter", hover);
+    </script> -->
+</body>
+
+</html>

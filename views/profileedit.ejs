@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/fave icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Profile edit</title>
+    <link rel="stylesheet" href="/css/form.css">
+</head>
+<body>
+    
+    <div id="edit-section">
+        <div id="btn-section">
+            <a href="/bahadur/v1/profile">back</a>
+            <a id="update-btn" href="/bahadur/v1/profile">save</a>
+        </div>
+        <div id="content-section">
+            <ul>
+                <li>
+                    <label for="">name:</label>
+                    <input type="text" name="" id="name" value="<%= user.name %>">
+                </li>
+                <li>
+                    <label for="">email:</label>
+                    <input type="email" name="" id="email" value="<%= user.email %>">
+                </li>
+                <li>
+                    <label for="">profile&nbsp;picture:</label>
+                    <input type="file" name="" id="file">
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="/script/user_update.js"></script>
+</body>
+</html>

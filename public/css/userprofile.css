@@ -1,0 +1,253 @@
+:root {
+    --primary_color: #fe2713;
+    --accent-color: #ff9808;
+    --accent-blur-color: #f9c3777c;
+    --background_color: #FAF3DD;
+    --black-color: #000000;
+    /* --primary_color: #34495E;
+--accent-color:  #3498DB;
+--accent-blur-color:  #3498db96;
+--background_color: #EAEAEA; */
+
+    --heading-font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    --body-font: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#profile-page {
+    /* width: 100vw; */
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#profile-section {
+    width: 95%;
+    height: 80vh;
+    margin: 5vh 0vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.items {
+    border-radius: 20px;
+    background-color: var(--background_color);
+}
+
+/* .user {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
+} */
+
+.store {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.user {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* background-color: var(--primary_color); */
+}
+
+#user-image {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* position: relative; */
+    /* background-color: var(--primary_color); */
+}
+
+#user-image #image {
+    width: 70%;
+    height: 70%;
+    border-radius: 100%;
+    background-color: var(--accent-blur-color);
+}
+
+#image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+#user-edit {
+    color: var(--black-color);
+    text-decoration: none;
+    font-size: 20px;
+    position: relative;
+    top: -75%;
+    left: 40%;
+}
+
+#user-edit:hover {
+    color: var(--primary_color);
+}
+
+#user-disc {
+    width: 50%;
+    height: 100%;
+    /* background-color: var(--accent-color); */
+}
+
+#user-disc div {
+    height: 100%;
+    padding-left: 3vw;
+}
+
+#user-disc div p {
+    margin: 9vh 0vh;
+    font-family: var(--body-font);
+    font-size: 16px;
+    text-transform: lowercase;
+}
+
+#user-disc div #user-name {
+    font-family: var(--heading-font);
+    font-size: 30px;
+    text-transform: capitalize;
+}
+.like-book-order a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: var(--body-font);
+    text-decoration: none;
+    color: var(--black-color);
+}
+.items-names {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.items-names p {
+    margin: 3vh 0vh;
+}
+.item-name {
+    font-family: var(--body-font);
+    text-transform: capitalize;
+    font-size: 18px;
+    color: var(--accent-color);
+}
+.item-icon {
+    width: 50%;
+    height: 100%;
+    font-size: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item-icon:hover {
+    font-size: 65px;
+    color: var(--primary_color);
+}
+.store a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-decoration: none;
+    color: var(--black-color);
+}
+.store a .items-names {
+    padding: 10px;
+}
+.store a .items-names p {
+    margin: 10px 0px;
+}
+.store a .item-icon {
+    width: 30%;
+}
+.store a .item-icon img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+@media (max-width: 850px) {
+    .item-icon {
+        width: 40%;
+    }
+    #user-disc div p {
+        font-size: 13px;
+    }
+    #user-disc div #user-name {
+        font-size: 20px;
+    }
+}
+@media (max-width: 750px) {
+    .item-name {
+        font-size: 15px;
+    }
+}
+@media (max-width: 650px) {
+    #profile-section {
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: repeat(4, 1fr); */
+}
+    .user {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.store {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+.item-icon {
+    font-size: 35px;
+}
+.item-icon:hover {
+    font-size: 45px;
+}
+}
+@media (max-width: 450px) {
+    .like-book-order a {
+    flex-direction: column-reverse;
+}
+.items-names {
+    width: 100%;
+    height: 50%;
+}
+.items-names p {
+    padding: 1vh 0vh;
+    margin: 0px;
+}
+.item-icon {
+    width: 100%;
+    height: 50%;
+}
+}

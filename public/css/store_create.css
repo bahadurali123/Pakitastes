@@ -1,0 +1,140 @@
+:root {
+    --primary_color: #fe2713;
+    --accent-color: #ff9808;
+    --accent-blur-color: #f9c3777c;
+    --background_color: #FAF3DD;
+    --black-color: #000000;
+    /* --primary_color: #34495E;
+--accent-color:  #3498DB;
+--accent-blur-color:  #3498db96;
+--background_color: #EAEAEA; */
+
+    --heading-font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    --body-font: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#store {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    align-content: center;
+    font-family: var(--body-font);
+    font-size: 15px;
+    background-color: var(--background_color);
+}
+
+#store-data {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+#store-data a {
+    margin: 10px 0px 10px 10px;
+    text-decoration: none;
+    color: var(--black-color);
+    text-transform: capitalize;
+}
+
+#store-data div {
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-div form {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+#form-div form label {
+    margin: 8px 0px 3px 10px;
+    text-transform: capitalize;
+}
+
+#form-div form input {
+    padding: 5px;
+}
+
+#form-div form textarea {
+    height: 100px;
+    margin: none;
+    padding: 5px;
+}
+
+#form-div form #file {
+    margin: none;
+    padding: 5px;
+}
+
+#form-div form #create-btn {
+    padding: 5px 15px;
+    margin-top: 15px;
+    border: 1px solid var(--primary_color);
+    color: var(--primary_color);
+    background-color: var(--background_color);
+    border-radius: 20px;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
+#form-div form #create-btn:hover {
+    color: white;
+    background-color: var(--primary_color);
+}
+
+#message {
+    color: var(--primary_color);
+}
+
+#store-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 800px) {
+    #store {
+        width: auto;
+        height: auto;
+    }
+
+    #store {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    #store-image {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    #store-image img {
+        width: 90%;
+    }
+
+    #store-data {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 4;
+    }
+}

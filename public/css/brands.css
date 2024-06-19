@@ -1,0 +1,102 @@
+:root {
+    --primary_color: #fe2713;
+    --accent-color: #ff9808;
+    --accent-blur-color: #f9c3777c;
+    --background_color: #FAF3DD;
+    --black-color: #000000;
+    /* --primary_color: #34495E;
+    --accent-color:  #3498DB;
+    --accent-blur-color:  #3498db96;
+    --background_color: #EAEAEA; */
+
+    --heading-font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    --body-font: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+#brands-page{
+    width: 100%;
+    margin: 5vh 0vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#brands-section-1 h3 {
+    font-family: var(--heading-font);
+    font-size: 25px;
+    text-transform: capitalize;
+}
+#brands-section-1 p {
+    padding: 0% 5%;
+    font-family: var(--body-font);
+    font-size: 15px;
+    text-transform: inherit;
+}
+#brands-section-2 {
+    width: 95%;
+    margin: 10vh 0vh;
+    /* display: flex;
+    flex-wrap: wrap; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+    row-gap: 25px;
+    margin-top: 10vh;
+}
+.brand {
+    min-width: 275px;
+    max-width: 350px;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: var(--background_color);
+}
+.brand a {
+    /* width: 100%; */
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--black-color);
+}
+.brand a div {
+    margin: 0px 5px;
+}
+.brand a .brand-img, .brand a .brand-img img {
+    width: 75px;
+    height: 75px;
+    border-radius: 20px;
+    background-color: var(--accent-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.brand a .brand-name h2 {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: var(--body-font);
+    text-transform: capitalize;
+}
+@media (max-width: 900px) {
+    #brands-section-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    .brand {
+        min-width: 250px;
+    }
+}
+@media (max-width: 550px) {
+    #brands-section-2 {
+        grid-template-columns: 1fr;
+    }
+    .brand {
+    justify-items: center;
+        min-width: 300px;
+        max-width: 450px;
+    }
+}

@@ -1,0 +1,242 @@
+:root {
+    --primary_color: #fe2713;
+    --accent-color: #ff9808;
+    --accent-blur-color: #f9c3777c;
+    --background_color: #FAF3DD;
+    --black-color: #000000;
+    /* --primary_color: #34495E;
+--accent-color:  #3498DB;
+--accent-blur-color:  #3498db96;
+--background_color: #EAEAEA; */
+
+    --heading-font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    --body-font: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#brand-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#brands-section {
+    width: 95%;
+    border-radius: 20px;
+    margin: 5vh 0px;
+    background-color: var(--background_color);
+}
+
+#cover-image,
+#cover-image img {
+    width: 100%;
+    height: 45vh;
+    border-radius: 20px 20px 0px 0px;
+}
+
+#brand-logo {
+    position: relative;
+    top: -200px;
+    left: 75px;
+}
+
+#brand-logo,
+#brand-logo img {
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    border: 2px solid var(--primary_color);
+}
+
+#brand-name {
+    position: relative;
+    top: -100px;
+    padding: 25px;
+}
+
+#brand-name h1 {
+    text-transform: capitalize;
+    font-family: var(--heading-font);
+    font-size: 28px;
+    margin: 5px 0px;
+}
+
+#brand-name p {
+    text-transform: lowercase;
+    font-family: var(--body-font);
+    font-size: 15px;
+    margin: 5px 0px;
+}
+#social-div {
+    display: flex;
+}
+#social-div div {
+    margin: 5px 15px;
+}
+#social-div div:hover {
+    color: var(--primary_color);
+    cursor: pointer;
+}
+.true {
+    color: var(--primary_color);
+}
+#brand-about {
+    position: relative;
+    top: -50px;
+    padding: 25px;
+    font-family: var(--body-font);
+}
+
+#brand-about #about {
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+#brand-about p {
+    width: auto;
+    padding: 15px;
+}
+
+#products {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-family: var(--heading-font);
+    font-size: 35px;
+    margin-top: 25px;
+    text-transform: capitalize;
+}
+/* ..........Reviev section.......... */
+#review-section {
+    width: 100%;
+    min-height: 25vh;
+    margin: 40px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    text-transform: capitalize;
+    font-family: var(--body-font);
+}
+#review-section div {
+    width: 80%;
+    /* background-color: var(--primary_color); */
+}
+#review-section div form {
+    width: 100%;
+}
+#title-div {
+    font-family: var(--heading-font);
+    font-size: 17px;
+    color: var(--primary_color);
+}
+#review-section div form ul {
+    padding: 15px;
+}
+#review-section div form ul li {
+    list-style: none;
+    margin: 15px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+#review-section div form ul li div {
+    width: 100%;
+    padding: 0px 15px;
+    display: flex;
+    flex-direction: column;
+}
+#review-section div form ul li div label {
+    margin: 5px;
+}
+/* #review-section div form ul li div input { */
+#review-section div form ul li div select {
+    padding: 5px;
+}
+#review-section div form ul li div textarea {
+    width: 100%;
+    min-height: 25vh;
+    padding: 5px;
+}
+#review-section div form ul li #btn-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#review-section div form ul li div .submit_btn {
+    /* width: auto; */
+    max-width: 150px;
+    height: auto;
+    padding: 5px 15px;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    background-color: var(--background_color);
+    border-radius: 10px;
+    font-size: 15px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+#review-section div form ul li div .submit_btn:hover {
+    background-color: var(--primary_color);
+    color: white;
+}
+@media (max-width: 850px) {
+    #brand-logo {
+        left: 50px;
+    }
+
+    #brand-about {
+        top: -50px;
+    }
+}
+
+@media (max-width: 650px) {
+    #brand-name {
+        top: -50px;
+    }
+
+    #brand-logo {
+        top: -150px;
+        left: 50px;
+    }
+
+    #brand-logo,
+    #brand-logo img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 550px) {
+    body {
+        background-color: var(--primary_color);
+    }
+
+    #cover-image,
+    #cover-image img {
+        height: 35vh;
+    }
+
+    #brand-logo {
+        top: -100px;
+        left: 25vw;
+    }
+
+    #brand-logo,
+    #brand-logo img {
+        width: 150px;
+        height: 150px;
+    }
+}

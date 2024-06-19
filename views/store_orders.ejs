@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/fave icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>orders</title>
+    <link rel="stylesheet" href="/css/store_nav.css">
+    <link rel="stylesheet" href="/css/store_products.css">
+</head>
+
+<body>
+    <%- include('partials/store_nav.ejs', {logo:storelogo}) %>
+        <div id="items-section">
+            <div id="top-layer">
+                <div>
+                    <p id="page-title">orders</p>
+                </div>
+                <div>
+                    <select name="" id="">
+                        <option value="last week">last week</option>
+                        <option value="last month">last month</option>
+                        <option value="last year">last year</option>
+                        <option value="lifetime">lifetime</option>
+                    </select>
+                </div>
+            </div>
+            <div id="botem-layer">
+                <div id="products-section">
+                    <div>
+
+                        <table>
+                            <tbody>
+                                <% newOrders.forEach((order)=>{ %>
+                                    <tr>
+                                        <td>
+                                            <img class="product-image" src="<%= order.prodPicture %>" alt="image">
+                                        </td>
+                                        <td>
+                                            <p>
+                                                <%= order.prodName.substring(0, 12).concat('...') %>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p>
+                                                <%= order.custName %>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p>
+                                                <%= order.orderTime %>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p>
+                                                <%= order.payStatus %>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p>
+                                                <%= order.totalPrice %>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <a href="/bahadur/v1/store/order/<%= order.orderId %>/<%= order.prodId %>"><i
+                                                    class="bi bi-box-arrow-in-right"></i></a>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+</body>
+
+</html>

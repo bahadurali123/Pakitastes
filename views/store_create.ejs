@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/fave icon.png" type="image/x-icon">
+    <title>Create Store</title>
+    <link rel="stylesheet" href="/css/store_create.css">
+</head>
+
+<body>
+    <div id="store">
+        <div id="store-data">
+            <a href="/bahadur/v1/profile">back</a>
+            <div id="form-div">
+                <form>
+                    <label for="">name</label>
+                    <input type="text" id="name">
+                    <label for="">email</label>
+                    <input type="email" name="" id="email">
+                    <label for="">discription</label>
+                    <textarea name="" id="discription"></textarea>
+                    <label for="">logo</label>
+                    <input type="file" accept="image/png, image/jpeg, image/jpg" name="" id="filelogo">
+                    <label for="">banner</label>
+                    <input type="file" accept="image/png, image/jpeg, image/jpg" name="" id="filebanner">
+                    <div>
+                        <button id="create-btn" >create store</button>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <p id="message"><%= message %></p>
+            </div>
+        </div>
+        <div id="store-image">
+            <img src="/images/shope.png" alt="image">
+        </div>
+    </div>
+    <script src="/script/store_create.js"></script>
+</body>
+
+</html>

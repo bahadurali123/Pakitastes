@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/fave icon.png" type="image/x-icon">
+    <title>bookmarks</title>
+    <link rel="stylesheet" href="/css/store_nav.css">
+    <link rel="stylesheet" href="/css/store_products.css">
+</head>
+<body>
+    <%- include('partials/store_nav.ejs', {logo:storelogo}) %>
+    
+    <div id="items-section">
+        <div id="top-layer">
+            <div>
+                <p id="page-title">bookmarks</p>
+            </div>
+            <div>
+                <p>date</p>
+            </div>
+        </div>
+        <div id="botem-layer">
+            <div id="bookmarks-top-section">
+                <div id="tot-store-bookmarks">
+                    <h2><%= totalstorebookmarks.name %></h2>
+                    <p><%= totalstorebookmarks.length %></p>
+                </div>
+                <div id="tot-products-bookmarks">
+                    <h2>products</h2>
+                    <p><%= totalproductbookmarks %></p>
+                </div>
+            </div>
+            <div id="bookmarks-section">
+                <div>
+                    <table>
+                        <tbody id="products-body">
+
+                            <% productBookmarks.forEach((item)=>{ %>
+                                <tr>
+                                    <td>
+                                        <p><%= item.index %></p>
+                                    </td>
+                                    <td>
+                                        <img class="user-profile" src="<%= item.picture %>" alt="image">
+                                    </td>
+                                    <td>
+                                        <h2><%= item.name %></h2>
+                                    </td>
+                                    <td>
+                                        <img class="user-profile" src="<%= item.custoemrPicture %>" alt="image">
+                                    </td>
+                                    <td>
+                                        <h2><%= item.custoemrName %></h2>
+                                    </td>
+                                    <td>
+                                        <p><%= item.status %></p>
+                                    </td>
+                                    <td>
+                                        <p><%= item.date %></p>
+                                    </td>
+                                </tr>
+                                <% }); %>
+
+                            </tbody>
+
+                        <tbody id="store-body">
+
+                            <% storeBookmarks.forEach((item)=>{ %>
+                                <tr>
+                                    <td>
+                                        <p><%= item.index %></p>
+                                    </td>
+                                    <td>
+                                        <img class="user-profile" src="<%= item.custoemrPicture %>" alt="image">
+                                    </td>
+                                    <td>
+                                        <h2><%= item.custoemrName %></h2>
+                                    </td>
+                                    <td>
+                                        <p><%= item.status %></p>
+                                    </td>
+                                    <td>
+                                        <p><%= item.date %></p>
+                                    </td>
+                                </tr>
+                                <% }); %>
+
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script src="/script/store_bookmark.js"></script>
+</body>
+</html>

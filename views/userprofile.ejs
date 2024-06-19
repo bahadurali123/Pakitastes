@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/fave icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/userprofile.css">
+</head>
+<body>
+    <%- include('partials/nav.ejs', {profilepic:userProfile, totalQuantity}) %>
+    
+    <div id="profile-page">
+        <div id="profile-section">
+            <div class="items user">
+                <div id="user-image">
+                    <div id="image">
+                        <img src="<%= user.picture %>" alt="profile-picture">
+                    </div>
+                    <a href="/bahadur/v1/profile/edit" id="user-edit">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+                </div>
+                <div id="user-disc">
+                    <div>
+                        <p id="user-name"><%= user.name %></p>
+                        <p><%= user.email %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="items like-book-order">
+                <a href="#">
+                    <div class="items-names">
+                        <p class="item-name">ordirs</p>
+                        <p><%= data.orderIs %></p>
+                    </div>
+                    <div class="item-icon"><i class="bi bi-receipt"></i></div>
+                </a>
+            </div>
+            <div class="items like-book-order">
+                <a href="#">
+                    <div class="items-names">
+                        <p class="item-name">bookmarks</p>
+                        <p><%= data.bookmarkIs %></p>
+                    </div>
+                    <div class="item-icon"><i class="bi bi-bookmarks-fill"></i></div>
+                </a>
+            </div>
+            <div class="items like-book-order">
+                <a href="#">
+                    <div class="items-names">
+                        <p class="item-name">likes</p>
+                        <p><%= data.likeIs %></p>
+                    </div>
+                    <div class="item-icon"><i class="bi bi-heart-fill"></i></div>
+                </a>
+            </div>
+            <div class="items store">
+                <% if( storis ===  null ){ %>
+                    <a href="/bahadur/v1/store/create">
+                        <div class="items-names">
+                            <p class="item-name">store</p>
+                            <p>Start your own store today on [xyz] and reach a wider audience with your unique products and services.</p>
+                        </div>
+                        <div class="item-icon"><i class="bi bi-shop"></i></div>
+                    </a>
+                    <% }else{ %>
+                        <a href="/bahadur/v1/store">
+                            <div class="items-names">
+                                <p class="item-name">store</p>
+                                <p>Here is your store <%= storis.name %>.</p>
+                            </div>
+                            <div class="item-icon">
+                                <img src="<%= storis.logo %>" alt="logo">
+                            </div>
+                            <!-- <div class="item-icon"><i class="bi bi-shop"></i></div> -->
+                        </a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

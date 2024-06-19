@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/fave icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Brand</title>
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/products.css">
+    <link rel="stylesheet" href="/css/brand.css">
+</head>
+
+<body>
+    <%- include('partials/nav.ejs', {profilepic:userProfile, totalQuantity}) %>
+
+        <div id="brand-page">
+
+            <div id="brands-section">
+                <div id="cover-image">
+                    <img src="<%= brandis.banner %>" alt="">
+                </div>
+                <div id="brand-logo">
+                    <img src="<%= brandis.logo %>" alt="">
+                </div>
+                <div id="brand-name">
+                    <h1>
+                        <%= brandis.name %>
+                    </h1>
+                    <p>
+                        <%= brandis.email %>
+                    </p>
+                    <div id="social-div">
+                        <p class="product-id" id="brand-is" hidden><%= brandis._id %></p>
+                        <% if( find_bookmark === null ){ %>
+                            <div class="actions bookmark" id="bookmark"><i class="bi bi-bookmark-fill"></i></div>
+                        <% }else{ %>
+                            <div class="actions bookmark <%= find_bookmark.status %>" id="bookmark"><i class="bi bi-bookmark-fill"></i></div>
+                       <% } %>
+
+                        <% if( find_like === null ){ %>
+                            <div class="actions like" id="like"><i class="bi bi-heart-fill"></i></div>
+                        <% }else{ %>
+                            <div class="actions like <%= find_like.status %>" id="like"><i class="bi bi-heart-fill"></i></div>
+                       <% } %>
+                    </div>
+                </div>
+                <div id="brand-about">
+                    <p id="about">about</p>
+                    <p>
+                        <%= brandis.description %>
+                    </p>
+                </div>
+            </div>
+
+            <!-- product section -->
+            <% if( !(products[0]===undefined) ){ %>
+                <div id="products">
+                    <p class="title">owr products</p>
+                    <div id="products-section">
+
+                        <% products.forEach((item)=> { %>
+                            <div class="product">
+                                <a class="product-anc" href="/bahadur/v1/product/<%= item._id %>">
+                                    <div class="product-img-div">
+                                        <img class="product-img" src="<%= item.picture %>" alt="">
+                                    </div>
+                                    <div class="product-dis-div">
+                                        <div class="product-title">
+                                            <h4><%= item.name %>
+                                            </h4>
+                                        </div>
+                                        <div class="product-pric-section">
+                                            <p>$&nbsp;<span>
+                                                    <%= item.price %>
+                                                </span></p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <% }) %>
+
+                    </div>
+                </div>
+                <% } %>
+
+        </div>
+
+        <!-- ..........Review shection is this.......... -->
+        <div id="review-section">
+            <div>
+                <form action="/bahadur/v1/brand/<%= brandis._id %>/review" method="post" id="reviewForm">
+                    <ul>
+                        <li>
+                            <div id="title-div">
+                                <label for="">Review Our Brand</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <textarea name="review" id="review"></textarea>
+                            </div>
+                        </li>
+                        <li>
+                            <div id="btn-div">
+                                <button class="submit_btn" type="submit">submit</button>
+                            </div>
+                            <div>
+                                <label for="">rating</label>
+                                <select name="rating" id="rating">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <p id="message"></p>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+
+        <%- include('partials/footer.ejs') %>
+            <script src="/script/review_validation.js"></script>
+            <script src="/script/brand_social.js"></script>
+</body>
+
+</html>

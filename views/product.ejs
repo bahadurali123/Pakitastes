@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/fave icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Ecommerce</title>
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/productshow.css">
+    <link rel="stylesheet" href="/css/brand.css">
+</head>
+
+<body>
+    <%- include('partials/nav.ejs', {profilepic:userProfile, totalQuantity}) %>
+    <div id="product">
+        <div id="product-section-1">
+            <div id="product-img-section">
+                <img src="<%= product.picture %>" alt="image">
+            </div>
+        </div>
+        <div id="product-section-2">
+            <div id="product-detail-section">
+                <div class="product-items" id="priduct-title">
+                    <h2><%= product.name %></h2>
+                </div>
+                <div class="product-items" id="visit-store">
+                    <a href="#">visit store xyz</a>
+                </div>
+                <div class="product-items" id="product-rating">
+                    <p id="rating-stars">
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                    </p>
+                    <p id="rating-count">
+                        <a href="#">1000 ratings</a>
+                    </p>
+                </div>
+                <hr>
+                <div class="product-items" id="price-categ">
+                    <div>
+                        <p id="product-price">$<%= product.price %></p>
+                    </div>
+                    <div id="quantity-section">
+                        <div class="quantity-decrease">
+                            <p>-</p>
+                        </div>
+                        <div class="quantity-total" id="quantity-total">
+                            <p>1</p>
+                        </div>
+                        <div class="quantity-increase">
+                            <p>+</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-items" id="product-add">
+                    <div>
+                        <button id="addtocart">add to cart</button>
+                        <p id="prod-is" hidden><%= product._id %></p>
+                    </div>
+                </div>
+                <div class="product-items" id="product-disc">
+                    <div>
+                        <p><%= product.discription %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ..........Review shection is this.......... -->
+    <div id="review-section">
+        <div>
+            <form action="/bahadur/v1/product/<%= product._id %>/review" method="post" id="reviewForm">
+                <ul>
+                    <li>
+                        <div id="title-div">
+                            <label for="">Review Our Product</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <textarea name="review" id="review"></textarea>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="btn-div">
+                            <button class="submit_btn" type="submit">submit</button>
+                        </div>
+                        <div>
+                            <label for="">rating</label>
+                            <select name="rating" id="rating">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p id="message"></p>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+        <%- include('partials/footer.ejs') %>
+        <script src="/script/product_quantity.js"></script>
+        <script src="/script/review_validation.js"></script>
+</body>
+
+</html>
