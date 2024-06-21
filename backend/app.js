@@ -6,17 +6,19 @@ import path from "path";
 
 const app = express();
 
-app.use(express.static("public")); //used to serve static files
-app.use(express.json()); //Its parse the incoming request bodies with JSON payloads. When a client sends a POST, PUT, PATCH, or DELETE request
-app.use(cookieParser()); //its handle the cookies
-app.use(express.urlencoded({ extended: false }));
-
 // ES6 not support __dirname so we use fileURLToPath for it
 import { fileURLToPath } from 'url';
 //we need to change up how __dirname is used for ES6 purposes
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const sp = path.join(__dirname, "../public");
 const vp = path.join(__dirname, "../views");
+console.log("view path:",sp);
 console.log("view path:",vp);
+
+app.use(express.static(sp)); //used to serve static files
+app.use(express.json()); //Its parse the incoming request bodies with JSON payloads. When a client sends a POST, PUT, PATCH, or DELETE request
+app.use(cookieParser()); //its handle the cookies
+app.use(express.urlencoded({ extended: false }));
 
 app.set('views', vp);
 app.set('view engine', 'ejs');
