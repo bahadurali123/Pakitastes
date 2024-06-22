@@ -12,7 +12,7 @@
     ],
     "routes":[
         {
-            "src": "/ab/v1/home",
+            "src": "/bahadur/v1/commerce",
             "dest": "/index.js"
         }
     ]
