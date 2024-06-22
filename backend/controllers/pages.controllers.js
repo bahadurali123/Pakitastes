@@ -653,7 +653,8 @@ const put_profileEdit = async (req, res) => {
     console.log("Profile edit put!");
     const { name, email } = req.body;
     const user = req.user;
-    const file = req.file.path;
+    // const file = req.file.path;
+    const file = req.file.buffer;
 
     if (!name || !email || !user || !file) {
       req.status(400).send({ message: "All fiels are require!" });

@@ -36,7 +36,7 @@ router.post("/otpverify", get_otp_verify);
 router.get("/regenrateotp/:mail", get_otp_regenrete);
 router.get("/userlogout", userAuthantice, logoutUser); //
 
-// Store creation and updaion routs
+// Store creation and updation routs
 router.get("/store", userAuthantice, get_store); //
 router.get("/store/create", userAuthantice, get_create_store); //
 router.post("/store/createstore", upload.fields([{ name: "logo", maxCount: 1 }, { name: "banner", maxCount: 1 }]), userAuthantice, post_create_store); //
@@ -44,7 +44,7 @@ router.get("/store/update", userAuthantice, get_update_store); //
 router.get("/store/update/json", userAuthantice, get_update_store_json); //
 router.put("/store/update", upload.fields([{ name: "logo", maxCount: 1 }, { name: "banner", maxCount: 1 }]), userAuthantice, updata_store); //
 
-// Product creation and updaion routs
+// Product creation and updation routs
 router.get("/store/your/products", userAuthantice, get_products); //
 router.get("/store/product/create", userAuthantice, get_create_product); //
 router.post("/store/product/create", upload.single('image'), userAuthantice, post_create_product); //
@@ -53,7 +53,7 @@ router.get("/store/product/update/:id/json", userAuthantice, get_update_product_
 router.put("/store/product/update/:id", upload.single('image'), userAuthantice, put_update_product); //
 router.get("/store/product/delete/:id", userAuthantice, delete_product); //
 
-// category creation and updaion routs
+// category creation and updation routs
 router.get("/store/category/create", userAuthantice, get_create_category); //
 router.post("/store/category/create", upload.single('video'), userAuthantice, post_create_category); //
 router.get("/store/category/:id", userAuthantice, get_update_category); //

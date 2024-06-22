@@ -1,5 +1,7 @@
+import { diskStorage } from "multer";
 import { deletevideo, findFile, updateCloudinaryFile, uponCloudinary } from "../middleware/cloudinary.middleware.js";
 import Category from "../models/category.modules.js";
+import { CLOUD_RESOURCE_MANAGER } from "google-auth-library/build/src/auth/baseexternalclient.js";
 
 const get_create_category = async (__, res)=>{
     try {
@@ -15,7 +17,8 @@ const post_create_category = async (req, res)=>{
     try {
         console.log("Category Psot!");
         const { name, discription} = req.body;
-        const file = req.file.path;
+        // const file = req.file.path;
+        const file = req.file.buffer;
         // console.log(name, discription, file)
         if (!name || !discription || !file ) {
             req.status(400).send({message:"All fiels are require!"});
@@ -30,7 +33,12 @@ const post_create_category = async (req, res)=>{
             return;
         };
         const cloudinary_responce = await uponCloudinary(file);
-        const video = cloudinary_responce.url;
+        // // For diskStorage
+        // const video = cloudinary_responce.url;
+
+        // For memoryStorage
+        const video = cloudinary_responce.secure_url;
+
         const newcategory = new Category({
             name,
             video,
@@ -56,7 +64,8 @@ const put_update_category = async (req, res)=>{
     try {
         const { name, discription} = req.body;
         const id = req.params.id;
-        const file = req.file.path;
+        // const file = req.file.path;
+        const file = req.file.buffer;
         // console.log("Data", file, name, discription, id);
 
         if (!name || !discription ) {
@@ -71,12 +80,14 @@ const put_update_category = async (req, res)=>{
             req.status(400).send({message:"Description length is incorrect!"});
             return;
         };
+        
         const category = await Category.findById({_id: id});
         // Extrect Cloudinary picture id from picture url
         const find_file_Id = await findFile(category.video);
         const cloudinary_output = await updateCloudinaryFile(find_file_Id, file);
         const video = cloudinary_output;
         // console.log("Video: ", video);
+
         const newcategory = await Category.findOneAndUpdate(
             {
                 _id:id 

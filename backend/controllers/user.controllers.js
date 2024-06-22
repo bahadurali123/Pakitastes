@@ -7,6 +7,7 @@ import sendEmail from '../middleware/mail.middleware.js';
 
 // google atuhantication
 import { OAuth2Client } from "google-auth-library";
+import { diskStorage } from 'multer';
 const client = new OAuth2Client({
   clientId: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
@@ -67,7 +68,8 @@ const postUser = async (req, res) => {
   try {
     console.log("User Register Post!");
     const { name, email, password, gender } = req.body;
-    const file = req.file.path;
+    // const file = req.file.path;
+    const file = req.file.buffer;
     // console.log("User Register Body", req.body, file);
 
     // data from > body.
@@ -147,8 +149,14 @@ const postUser = async (req, res) => {
     if (!res.headersSent) {
       // console.log("User Register Body file", req.file);
       const cloudinary_responce = await uponCloudinary(file);
-      const picture = cloudinary_responce.url;
-      console.log("Cloudinary responce", cloudinary_responce.url);
+      // console.log("Cloudinary responce", cloudinary_responce.url);
+
+      // For diskStorage
+      // const picture = cloudinary_responce.url;
+
+      // For memoryStorage
+      const picture = cloudinary_responce.secure_url;
+
       const user = new User({
         name,
         email,

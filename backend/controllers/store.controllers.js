@@ -10,6 +10,7 @@ import Order from "../models/order.modules.js";
 import GoogleUser from "../models/googleuser.modules.js";
 import User from "../models/user.modules.js";
 import { handelPayments } from "../middleware/paymenthandelar.middleware.js"
+import { diskStorage } from "multer";
 
 
 const get_store = async (req, res) => {
@@ -175,8 +176,10 @@ const post_create_store = async (req, res) => {
         const { name, email, description } = req.body;
         // console.log("Body", req.body);
         // console.log("Files: ", req.files);
-        const filelogo = req.files.logo[0].path;
-        const filebanner = req.files.banner[0].path;
+        // const filelogo = req.files.logo[0].path;
+        // const filebanner = req.files.banner[0].path;
+        const filelogo = req.files.logo[0].buffer;
+        const filebanner = req.files.banner[0].buffer;
         const userId = req.user._id;
 
         // validation
@@ -217,12 +220,21 @@ const post_create_store = async (req, res) => {
         };
         // upload logo on cloudinery
         const cloudinary_logo_output = await uponCloudinary(filelogo);
-        const logo = cloudinary_logo_output.url;
+        // // For diskStorage
+        // const logo = cloudinary_logo_output.url;
+        // // console.log("Logo is:", logo);
+        
+        // For memoryStorage
+        const logo = cloudinary_logo_output.secure_url;
+        
         const cloudinary_banner_output = await uponCloudinary(filebanner);
-        const banner = cloudinary_banner_output.url;
-        // console.log("Logo is:", logo);
+        // // For diskStorage
+        // const banner = cloudinary_banner_output.url;
         // console.log("Banner is:", banner);
-
+        
+        // For memoryStorage
+        const banner = cloudinary_banner_output.secure_url;
+        
         const newstore = new Store({
             name,
             email,
@@ -269,8 +281,10 @@ const get_update_store_json = async (req, res) => {
 const updata_store = async (req, res) => {
     try {
         const { name, email, description } = req.body;
-        const filelogo = req.files.logo[0].path;
-        const filebanner = req.files.banner[0].path;
+        // const filelogo = req.files.logo[0].path;
+        // const filebanner = req.files.banner[0].path;
+        const filelogo = req.files.logo[0].buffer;
+        const filebanner = req.files.banner[0].buffer;
         // console.log("Files: ", req.files);
         const userId = req.user._id;
         

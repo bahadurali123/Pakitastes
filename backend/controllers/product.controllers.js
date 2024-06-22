@@ -3,6 +3,7 @@ import Product from "../models/product.modules.js";
 import Store from "../models/store.modules.js";
 import {deletefile, findFile, updateCloudinaryFile, uponCloudinary} from "../middleware/cloudinary.middleware.js";
 import Category from "../models/category.modules.js";
+import { diskStorage, memoryStorage } from "multer";
 
 const get_products = async (req, res) => {
     try {
@@ -33,9 +34,11 @@ const get_create_product = async (__, res) => {
 
 const post_create_product = async (req, res) => {
     try {
+        console.log("Product create Post!");
         const { name, price, stockQty, discription, category } = req.body;
         const user = req.user._id;
-        const file = req.file.path;
+        // const file = req.file.path;
+        const file = req.file.buffer;
         // console.log("data is: ", name, price, stockQty, discription, user, file, category);
         if (!name || !price || !stockQty || !discription || !category || !file) {
             req.status(400).json({ message: "All fiels are require!" });
@@ -63,15 +66,24 @@ const post_create_product = async (req, res) => {
             req.status(400).json({ message: "Category is incorrect!" });
             return;
         };
+
         const given_user = await Store.findOne({ userId: user });
         const storeId = given_user._id;
+
         if (!storeId) {
             req.status(400).json({ message: "Store not exist!" });
             return;
         };
 
         const cloudinary_output = await uponCloudinary(file);
-        const picture = cloudinary_output.url;
+        // console.log("Cloudiners res: ", cloudinary_output);
+
+        // // For diskStorage
+        // const picture = cloudinary_output.url;
+
+        // For memoryStorage
+        const picture = cloudinary_output.secure_url;
+
         const newproduct = new Product({
             name,
             price,
@@ -116,7 +128,8 @@ const put_update_product = async (req, res) => {
         const productis = req.params.id;
         const { name, price, stockQty, discription, category } = req.body;
         const user = req.user._id;
-        const file = req.file.path;
+        // const file = req.file.path;
+        const file = req.file.buffer;
         // console.log("file is: ", file);
         // console.log("F is: ", name, price, stockQty, discription, user, file, productis);
         if (!name || !price || !stockQty || !discription || !category || !file) {
