@@ -12,7 +12,7 @@
     ],
     "routes":[
         {
-            "src": "/bahadur/v1/commerce",
+            "src": "/(.*)",
             "dest": "/index.js"
         }
     ]
