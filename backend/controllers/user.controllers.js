@@ -86,7 +86,7 @@ const postUser = async (req, res) => {
       res.status(401).send("All field are required!");
       return;
     }
-    if (name.trim() === "" || email.trim() === "" || password.trim() === "" || gender.trim() === "" || file.trim() === "") {
+    if (name.trim() === "" || email.trim() === "" || password.trim() === "" || gender.trim() === "") {
       res.status(401).send("Not any blanck field!");
       return;
     }
