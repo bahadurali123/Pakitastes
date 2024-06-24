@@ -182,9 +182,9 @@ const postUser = async (req, res) => {
 
       // Send welcome email
       const to = data.email;
-      const subject = 'Welcome to Quickbuy - Let\'s Get Started!';
-      const text = `Dear  ${data.name}, We are thrilled to welcome you to <strong>Quickbuy</strong>! Thank you for choosing us as your preferred destination for all your shopping needs.`;
-      const html = `<p>Dear ${data.name},</p><p>Thank you for using <strong>Quickbuy</strong>. To proceed with your request, please use the following One-Time Password (OTP):</p><p>OTP Code: <strong>${otp.code}</strong></p><p>Please enter this OTP code within the next 3 minutes to verify your identity and complete your action.</p><p><strong>Note</strong>: This OTP is valid for 3 minutes from the time of this email. If you did not request this OTP or if you encounter any issues, please contact our support team immediately].</p><p>We are committed to ensuring the security of your account. Please do not share this OTP with anyone.</p><p>Thank you for choosing Quickbuy.</p><p>Best regards,</p><p>The Quickbuy Team</p>`;
+      const subject = 'Welcome to Pakitastes - Let\'s Get Started!';
+      const text = `Dear  ${data.name}, We are thrilled to welcome you to <strong>Pakitastes</strong>! Thank you for choosing us as your preferred destination for all your shopping needs.`;
+      const html = `<p>Dear ${data.name},</p><p>Thank you for using <strong>Pakitastes</strong>. To proceed with your request, please use the following One-Time Password (OTP):</p><p>OTP Code: <strong>${otp.code}</strong></p><p>Please enter this OTP code within the next 3 minutes to verify your identity and complete your action.</p><p><strong>Note</strong>: This OTP is valid for 3 minutes from the time of this email. If you did not request this OTP or if you encounter any issues, please contact our support team immediately].</p><p>We are committed to ensuring the security of your account. Please do not share this OTP with anyone.</p><p>Thank you for choosing Pakitastes.</p><p>Best regards,</p><p>The Pakitastes Team</p>`;
       sendEmail(to, subject, text, html);
 
       // const options = {
@@ -378,9 +378,9 @@ const get_otp_regenrete = async (req, res) => {
     // console.log("OTP is: ", otpobj);
 
     const to = user.email;
-    const subject = 'Welcome to Quickbuy - Let\'s Get Started!';
-    const text = `Dear  ${user.name}, We are thrilled to welcome you to <strong>Quickbuy</strong>! Thank you for choosing us as your preferred destination for all your shopping needs.`;
-    const html = `<p>Dear ${user.name},</p><p>Thank you for using <strong>Quickbuy</strong>. To proceed with your request, please use the following One-Time Password (OTP):</p><p>OTP Code: <strong>${otpobj.code}</strong></p><p>Please enter this OTP code within the next 3 minutes to verify your identity and complete your action.</p><p><strong>Note</strong>: This OTP is valid for 3 minutes from the time of this email. If you did not request this OTP or if you encounter any issues, please contact our support team immediately].</p><p>We are committed to ensuring the security of your account. Please do not share this OTP with anyone.</p><p>Thank you for choosing Quickbuy.</p><p>Best regards,</p><p>The Quickbuy Team</p>`;
+    const subject = 'Welcome to Pakitastes - Let\'s Get Started!';
+    const text = `Dear  ${user.name}, We are thrilled to welcome you to <strong>Pakitastes</strong>! Thank you for choosing us as your preferred destination for all your shopping needs.`;
+    const html = `<p>Dear ${user.name},</p><p>Thank you for using <strong>Pakitastes</strong>. To proceed with your request, please use the following One-Time Password (OTP):</p><p>OTP Code: <strong>${otpobj.code}</strong></p><p>Please enter this OTP code within the next 3 minutes to verify your identity and complete your action.</p><p><strong>Note</strong>: This OTP is valid for 3 minutes from the time of this email. If you did not request this OTP or if you encounter any issues, please contact our support team immediately].</p><p>We are committed to ensuring the security of your account. Please do not share this OTP with anyone.</p><p>Thank you for choosing Pakitastes.</p><p>Best regards,</p><p>The Pakitastes Team</p>`;
     sendEmail(to, subject, text, html);
 
     res.status(200).render('otp', { mail: user.email, otp: otpobj });

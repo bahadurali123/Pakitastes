@@ -220,10 +220,6 @@
 }
 
 @media (max-width: 550px) {
-    body {
-        background-color: var(--primary_color);
-    }
-
     #cover-image,
     #cover-image img {
         height: 35vh;
