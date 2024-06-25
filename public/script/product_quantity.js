@@ -38,7 +38,7 @@ const increaseQuantity = (index) => {
         const prod_is = document.getElementById("prod-is").innerText;
         const quantity = parseInt(quant_total);
     console.log("Add to cart", parseInt(quant_total), "and :", prod_is);
-    const prodaddrequset = await fetch("http://localhost:4444/bahadur/v1/product/add",{
+    const prodaddrequset = await fetch("/bahadur/v1/product/add",{
         method: "POST",
         headers: {
             "Content-type":"application/json"

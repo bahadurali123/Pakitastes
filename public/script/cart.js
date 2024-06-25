@@ -62,7 +62,7 @@ const updataProduct = async (index, product, quantity) => {
     console.log("Index is thsi: ", index);
     console.log("Product is thsi: ", product);
     console.log("Quantity is thsi: ", quantity);
-    const update = await fetch("http://localhost:4444/bahadur/v1/product/update", {
+    const update = await fetch("/bahadur/v1/product/update", {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
@@ -81,7 +81,7 @@ const updataProduct = async (index, product, quantity) => {
 const deleteProduct = async (index) => {
     const itemId = product_id_elements[index].innerText;
     console.log("Delete function is: ", index);
-    const deleteProductRequest = await fetch("http://localhost:4444/bahadur/v1/product/delete", {
+    const deleteProductRequest = await fetch("/bahadur/v1/product/delete", {
         method: "Post",
         headers: {
             "Content-type": "application/json"
@@ -130,38 +130,3 @@ const likeProduct = async (index) => {
     console.log("Like response: ", response);
     alert(`${response.message}`);
 };
-
-
-// // heandle the category increase and decrease
-//     let quantity_decrease = document.getElementsByClassName("quantity-decrease");
-//     let quantity_total = document.querySelector(".quantity-total p");
-//     let quantity_increase = document.getElementsByClassName("quantity-increase");
-//     // let quantity_decrease = document.getElementById("quantity-decrease");
-//     // let quantity_total = document.querySelector("#quantity-total p");
-//     // let quantity_increase = document.getElementById("quantity-increase");
-//     let quantity_val = parseInt(quantity_total.innerText);
-//     console.log("Quantity total is: ", quantity_total);
-//     console.log("Quantity value is: ", quantity_val);
-//     let quantity_total_is = document.querySelectorAll(".quantity-total p");
-//     let quantity_val_is = quantity_total_is.innerText;
-//     console.log("Quantity total is this: ", quantity_total_is);
-//     quantity_total_is.forEach((items)=>{
-//         console.log("Quantity value is this: ", items.innerText);
-//     });
-//     const quan_inc = ()=>{
-//         quantity_val = quantity_val + 1;
-//         quantity_total.textContent = quantity_val;
-//         // console.log(quantity_val);
-//     };
-//     const quan_dec = ()=>{
-//         // with if statment
-//         // if (quantity_val > 1) {
-//         //     quantity_val = quantity_val - 1;
-//         // }
-//         // with ternary operator
-//         quantity_val > 1 ?  quantity_val = quantity_val - 1: quantity_val ;
-//         quantity_total.textContent = quantity_val;
-//         // console.log(quantity_val);
-//     };
-//     quantity_increase.addEventListener("click", quan_inc);
-//     quantity_decrease.addEventListener("click", quan_dec);
