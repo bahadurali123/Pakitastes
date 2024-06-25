@@ -6,7 +6,7 @@ let product_delete_buttons = document.querySelectorAll(".item-actions .delete");
 let product_bookmark_buttons = document.querySelectorAll(".item-actions .bookmark");
 let product_like_buttons = document.querySelectorAll(".item-actions .like");
 let product_id_elements = document.querySelectorAll(".product-items .product-id");
-
+const url = window.location.origin;
 
 // Add event listeners to each "quantity-decrease" button
 product_delete_buttons.forEach((button, index) => {
@@ -62,7 +62,7 @@ const updataProduct = async (index, product, quantity) => {
     console.log("Index is thsi: ", index);
     console.log("Product is thsi: ", product);
     console.log("Quantity is thsi: ", quantity);
-    const update = await fetch("/bahadur/v1/product/update", {
+    const update = await fetch(`${url}/bahadur/v1/product/update`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
@@ -81,7 +81,7 @@ const updataProduct = async (index, product, quantity) => {
 const deleteProduct = async (index) => {
     const itemId = product_id_elements[index].innerText;
     console.log("Delete function is: ", index);
-    const deleteProductRequest = await fetch("/bahadur/v1/product/delete", {
+    const deleteProductRequest = await fetch(`${url}/bahadur/v1/product/delete`, {
         method: "Post",
         headers: {
             "Content-type": "application/json"
@@ -99,7 +99,7 @@ const deleteProduct = async (index) => {
 const bookmarkProduct = async (index) => {
     const itemId = product_id_elements[index].innerText;
     console.log("Bookmark function is: ", index);
-    const bookmarkProductRequest = await fetch("/bahadur/v1/product/bookmark", {
+    const bookmarkProductRequest = await fetch(`${url}/bahadur/v1/product/bookmark`, {
         method: "Post",
         headers: {
             "Content-type": "application/json"
@@ -117,7 +117,7 @@ const bookmarkProduct = async (index) => {
 const likeProduct = async (index) => {
     const itemId = product_id_elements[index].innerText;
     console.log("Like function is: ", index, itemId);
-    const likeProductRequest = await fetch("/bahadur/v1/product/like", {
+    const likeProductRequest = await fetch(`${url}/bahadur/v1/product/like`, {
         method: "Post",
         headers: {
             "Content-type": "application/json"
