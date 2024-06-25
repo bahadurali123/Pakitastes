@@ -46,6 +46,9 @@
     position: relative;
     top: -200px;
     left: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #brand-logo,
@@ -132,7 +135,6 @@
 }
 #review-section div {
     width: 80%;
-    /* background-color: var(--primary_color); */
 }
 #review-section div form {
     width: 100%;
@@ -160,7 +162,6 @@
 #review-section div form ul li div label {
     margin: 5px;
 }
-/* #review-section div form ul li div input { */
 #review-section div form ul li div select {
     padding: 5px;
 }
